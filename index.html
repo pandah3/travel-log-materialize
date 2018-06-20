@@ -12,7 +12,42 @@
    </head>
 
    <body>
-
+     <!-- Navigation bar stays fixed regardless of scrolling w/ class navbar-fixed-->
+     <div class="navbar-fixed">
+       <!-- Color classes automatically assign css properties through materialize (like bootstrap) -->
+       <nav class="teal">
+         <!-- Pushes everything to the center -->
+         <div class="container">
+           <!-- Standard nav bar markup -->
+           <div class="nav-wrapper">
+             <a href="#" class="brand-logo">Travel Log</a>
+             <!-- Set side menu bar w/ this class -->
+             <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+               <!-- Built-in icons in materialize- menu icon is the three horizontal bars for the side bar -->
+               <i class="material-icons">menu</i>
+             </a>
+             <!-- List for nav bar or menu bar for smaller screens; class hide-on-med~~ means hide the menu bar on screen size medium and below  -->
+             <ul class="right hide-on-med-and-down">
+               <li>
+                 <a href="#home">Home</a>
+               </li>
+               <li>
+                 <a href="#search">Search</a>
+               </li>
+               <li>
+                 <a href="#popular">Popular Places</a>
+               </li>
+               <li>
+                 <a href="#gallery">Gallery</a>
+               </li>
+               <li>
+                 <a href="#contact">Contact</a>
+               </li>
+             </ul>
+           </div>
+         </div>
+       </nav>
+     </div>
      <!--JavaScript at end of body for optimized loading-->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
    </body>
