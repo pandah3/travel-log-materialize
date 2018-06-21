@@ -11,7 +11,8 @@
      <title>Travel Log Materialize</title>
    </head>
 
-   <body>
+   <!-- id correlates with a href="#home" on ul for the nav menu so that when you click on the "Home" link, it leads you to the top of the body-->
+   <body id="home" class="scrollspy">
      <!-- Navbar -->
      <!-- Navigation bar stays fixed regardless of scrolling w/ class navbar-fixed-->
      <div class="navbar-fixed">
@@ -29,6 +30,7 @@
              </a>
              <!-- Lists menu on top, to the R of the brand-logo (class="right")
              Class hide-on-med~~ means hide the menu bar on screen size medium and below  -->
+             <!-- Why is the text automatically white?? -->
              <ul class="right hide-on-med-and-down">
                <li>
                  <a href="#home">Home</a>
@@ -51,7 +53,8 @@
        </nav>
      </div>
      <!-- Create separate menu list for side menu bar for mobile; keep separate from all nav bar divs
-      **id must match name for data-target up in the a link for the sidenav trigger bar-->
+      **id must match name for data-target up in the a link for the sidenav trigger bar
+      Side bar nav won't show unless initialized with JS-->
      <ul class="sidenav" id="mobile-nav">
        <li>
          <a href="#home">Home</a>
@@ -72,14 +75,15 @@
 
      <!-- Secton: Slider (Gallery of photos)
       Sections are literally namesake; new in HTML5
-      Class slider is required for materialize (on website: section Javascript, Media, Slider)-->
+      Class slider is required for materialize (on website: section Javascript, Media, Slider)
+      Slider gallery won't show unless initialized with JS-->
      <section class="slider">
        <!-- Copied whole ul section from materialize -->
        <ul class="slides">
       <li>
         <img src="img/pic1.jpg" alt="Globe with flags">
         <div class="caption center-align">
-          <h3>Log your Travels!</h3>
+          <h2>Log your Travels!</h2>
           <h5 class="light grey-text text-lighten-3 hide-on-small-only">Take a trip down memory lane</h5>
           <!-- hide on small only hides subtext caption when browser is small -->
         </div>
@@ -87,28 +91,49 @@
       <li>
         <img src="img/Screenshot_20170902-112114.jpg" alt="Turtle">
         <div class="caption left-align">
-          <h3>Recollect Memories</h3>
+          <h2>Recollect Memories</h2>
           <h5 class="light grey-text text-lighten-3 hide-on-small-only">Snorkeling in the Gili Islands</h5>
         </div>
       </li>
       <li>
         <img src="img/20160106_073617.jpg" alt="Capybaras">
         <div class="caption right-align">
-          <h3>See how many places you've been to</h3>
-          <h5 class="light grey-text text-lighten-3 hide-on-small-only">Capybaras at our door in the Amazon</h5>
+          <h2>See how many places you've been to</h2>
+          <h5 class="light grey-text text-lighten-3 hide-on-small-only">Capybaras greeting you in the Amazon</h5>
         </div>
       </li>
     </ul>
      </section>
-     
+
+     <!-- Section: Search -->
+     <!-- Materialize has a class called section that adds padding-->
+     <!-- Class of teal but want it darker than the nav bar so add darken-1 class to darken it by 1 level
+     Not sure why we add white-text class when before we didnt for nav bar and it was auto white
+     Search is part of scrollspy so make sure to add that class -->
+
+     <section id="search" class="section section-search teal darken-1 white-text center scrollspy">
+
+     </section>
+
      <!-- JavaScript at end of body for optimized loading -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
      <script type="text/javascript">
        // Initialize sidenav in Javascript for the sidenav menu to show when you click the side menu icon
+       // const could be set to anything
        const sideNav = document.querySelector(".sidenav"); //class sidenav is from the ul list for the sidebar menu
        // Use Materialize JS library; initializing sidenav, passing in variable (const) sideNav; 2nd parameter is options but leaving that blank (so an empty object)
        M.Sidenav.init(sideNav, {});
+
+       //Slider- no need to do a separate script, just include in same one as sidebar navbar
+       //.slider is from section class="slider"
+       const slider= document.querySelector(".slider");
+       M.Slider.init(slider, {
+         indicators: false, //dots on bottom of gallery indicating how many slides total; false hides them
+         height: 500,
+         transition: 300, //speed of the transition of slides
+         interval: 6000 //in ms so 6000ms = 6 secs
+       })
      </script>
    </body>
  </html>
