@@ -6,6 +6,7 @@
      <!--Import materialize.css-->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+     <link rel="stylesheet" href="css/main.css">
      <!--Let browser know website is optimized for mobile-->
      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
      <title>Travel Log Materialize</title>
@@ -112,14 +113,66 @@
      Search is part of scrollspy so make sure to add that class -->
 
      <section id="search" class="section section-search teal darken-1 white-text center scrollspy">
+       <!-- Container to restrict everything in this section -->
+       <div class="container">
+         <!-- Use grid with a 12 column row;
+         when screen is resized to small, "Search Destinations" and the search bar
+         is filled out to the screen size, but with the 12 col row, it is nicely padded w/i container-->
+         <div class="row">
+           <div class="col s12">
+             <h3>Search Destinations</h3>
+             <div class="input-field">
+               <!-- By default, Materialize forms dont have a background, only a line, so adding a white background -->
+               <input type="text" class="white grey-text autocomplete" id="autocomplete-input" placeholder="Paris, Cabo, Indonesia, etc.">
 
+             </div>
+           </div>
+         </div>
+       </div>
+     </section>
+
+     <!-- Section: Icon Boxes -->
+     <section class="section section-icons grey lighten-4 center">
+       <div class="container">
+         <div class="row">
+           <!-- 3 diff columns- s12 so they stack- on mobile screens, it'll take up the whole screen but on med screens & up, it'll be a 4 col div -->
+           <div class="col s12 m4">
+             <!-- border w/ shadow & padding -->
+             <div class="card-panel">
+               <!-- font based icons so do teal-text -->
+               <i class="material-icons large teal-text">room</i>
+               <h4>Log It</h4>
+               <p>Can't keep track of where you've been? Log it to keep track of your adventures.</p>
+             </div>
+           </div>
+           <!-- Copy col div and down (not container or row) -->
+           <div class="col s12 m4">
+             <!-- border w/ shadow & padding -->
+             <div class="card-panel">
+               <!-- font based icons so do teal-text -->
+               <i class="material-icons large teal-text">beach_access</i>
+               <h4>Memory Lane</h4>
+               <p>Take a trip down memory lane as you reminisce all the places you've been.</p>
+             </div>
+           </div>
+           <div class="col s12 m4">
+             <!-- border w/ shadow & padding -->
+             <div class="card-panel">
+               <!-- font based icons so do teal-text -->
+               <i class="material-icons large teal-text">flight_takeoff</i>
+               <h4>Plan It</h4>
+               <p>Plan your next adventure based on where you've been and where you can't wait to jet off to.</p>
+             </div>
+           </div>
+         </div>
+       </div>
      </section>
 
      <!-- JavaScript at end of body for optimized loading -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
      <script type="text/javascript">
-       // Initialize sidenav in Javascript for the sidenav menu to show when you click the side menu icon
+       // Initialize the sidenav plugin in Javascript for the sidenav menu to show when you click the side menu icon
        // const could be set to anything
        const sideNav = document.querySelector(".sidenav"); //class sidenav is from the ul list for the sidebar menu
        // Use Materialize JS library; initializing sidenav, passing in variable (const) sideNav; 2nd parameter is options but leaving that blank (so an empty object)
@@ -127,13 +180,33 @@
 
        //Slider- no need to do a separate script, just include in same one as sidebar navbar
        //.slider is from section class="slider"
-       const slider= document.querySelector(".slider");
+       const slider = document.querySelector(".slider");
        M.Slider.init(slider, {
          indicators: false, //dots on bottom of gallery indicating how many slides total; false hides them
          height: 500,
          transition: 300, //speed of the transition of slides
          interval: 6000 //in ms so 6000ms = 6 secs
        })
+
+       //Autocomplete
+       const ac = document.querySelector(".autocomplete");
+       M.Autocomplete.init(ac, {
+         data: { //which data you actually want to show in your autocomplete (manual???)
+           "Paris": null,
+           "Los Angeles": null,
+           "Italy": null,
+           "Bali, Indonesia": null,
+           "New York": null,
+           "Rome": null,
+           "Tokyo": null,
+           "Australia": null,
+           "Switzerland": null,
+           "Croatia": null,
+           "London": null,
+           "Amazon": null,
+           "Colombia": null,
+         }
+       });
      </script>
    </body>
  </html>
