@@ -5,3 +5,8 @@
   width: 90% !important;
   border: #f4f4f4 3px solid !important;
 }
+
+/* Put spacing between the icons; calling out each icon through .fa-4x */
+.section-follow .fa-4x {
+  margin: 5px 10px;
+}
