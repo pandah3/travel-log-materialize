@@ -240,8 +240,79 @@
              </a>
            </div>
          </div>
-
        </div>
+     </section>
+
+     <!-- Section: Gallery using Materialize Box plugin which is like Lightbox -->
+     <!-- Needs an id b/c part of our nav bar -->
+     <section id="gallery" class="section section-gallery scrollspy">
+       <div class="container">
+         <h4 class="center">
+           <span class="teal-text">Photo</span> Gallery
+         </h4>
+         <!-- One row -->
+         <div class="row">
+           <!-- Four 3 column divs -->
+           <div class="col s12 m3">
+             <!-- responsive-img keeps img w/i its container, thus making it mobile-responsive -->
+             <!-- Unsplash - you get random pics everytime you refresh; set dimensions, & can set keywords to what you want (ie- ?beach, ?nature,travel etc.) -->
+             <img src="https://source.unsplash.com/1600x900/?beach" class="materialboxed responsive-img" alt="">
+           </div>
+           <div class="col s12 m3">
+             <img src="https://source.unsplash.com/1600x900/?airplane,travel" class="materialboxed responsive-img" alt="">
+           </div>
+           <div class="col s12 m3">
+             <img src="https://source.unsplash.com/1600x900/?nature" class="materialboxed responsive-img" alt="">
+           </div>
+           <div class="col s12 m3">
+             <img src="https://source.unsplash.com/1600x900/?travel" class="materialboxed responsive-img" alt="">
+           </div>
+         </div>
+
+         <!-- Second row -->
+         <div class="row">
+           <!-- Four 3 column divs -->
+           <div class="col s12 m3">
+             <!-- responsive-img keeps img w/i its container, thus making it mobile-responsive -->
+             <!-- Unsplash - you get random pics everytime you refresh; set dimensions, & can set keywords to what you want (ie- ?beach, ?nature,travel etc.) -->
+             <img src="https://source.unsplash.com/1600x900/?water" class="materialboxed responsive-img" alt="">
+           </div>
+           <div class="col s12 m3">
+             <img src="https://source.unsplash.com/1600x900/?building" class="materialboxed responsive-img" alt="">
+           </div>
+           <div class="col s12 m3">
+             <img src="https://source.unsplash.com/1600x900/?trees" class="materialboxed responsive-img" alt="">
+           </div>
+           <div class="col s12 m3">
+             <img src="https://source.unsplash.com/1600x900/?cruise" class="materialboxed responsive-img" alt="">
+           </div>
+         </div>
+
+         <!-- Third row -->
+         <div class="row">
+           <!-- Four 3 column divs -->
+           <div class="col s12 m3">
+             <!-- responsive-img keeps img w/i its container, thus making it mobile-responsive -->
+             <!-- Unsplash - you get random pics everytime you refresh; set dimensions, & can set keywords to what you want (ie- ?beach, ?nature,travel etc.) -->
+             <img src="https://source.unsplash.com/1600x900/?adventure" class="materialboxed responsive-img" alt="">
+           </div>
+           <div class="col s12 m3">
+             <img src="https://source.unsplash.com/1600x900/?relax" class="materialboxed responsive-img" alt="">
+           </div>
+           <div class="col s12 m3">
+             <img src="https://source.unsplash.com/1600x900/?beaches" class="materialboxed responsive-img" alt="">
+           </div>
+           <div class="col s12 m3">
+             <img src="https://source.unsplash.com/1600x900/?traveling" class="materialboxed responsive-img" alt="">
+           </div>
+         </div>
+       </div>
+     </section>
+
+     <!-- Section: Contact -->
+     <!-- Needs an id b/c part of our nav bar -->
+     <section id="contact" class="section section-contact scrollspy">
+       
      </section>
      <!-- JavaScript at end of body for optimized loading -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
@@ -282,6 +353,11 @@
            "Colombia": null,
          }
        });
+
+       //Initializing the Material Boxed/Gallery section so when you hover over an image, and the magnifying glass icon shows up, when you click, it actually does something
+       //must use querySelectorAll b/c querySelector will only select first thing that has the class specified (class materialboxed)
+       const mb = document.querySelectorAll('.materialboxed');
+       M.Materialbox.init(mb, {});
      </script>
    </body>
  </html>
